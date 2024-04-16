@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
     styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+    public config: IConfig[] = [
+        {
+            link: '/home',
+            icon: 'home',
+            text: 'Home',
+        },
+        {
+            link: '/scratch',
+            icon: 'color_lens',
+            text: 'Scratch',
+        },
+    ];
+}
 
+interface IConfig {
+    link: string,
+    icon: string,
+    text: string,
 }

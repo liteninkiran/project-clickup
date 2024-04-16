@@ -1,1 +1,4 @@
-<p>navbar works!</p>
+<a mat-list-item [routerLink]="c.link" routerLinkActive="active-list-item" *ngFor="let c of config">
+    <mat-icon [fontIcon]="c.icon"></mat-icon>
+    <span>{{ c.text }}</span>
+</a>
