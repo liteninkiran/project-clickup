@@ -15,6 +15,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { HomeComponent } from './components/home/home.component';
 import { ScratchComponent } from './components/scratch/scratch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SharedModule } from './components/shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -35,6 +36,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
         // Shared Modules
         MaterialModule,
+        SharedModule,
     ],
     providers: [
         provideAnimationsAsync(),

@@ -1,1 +1,19 @@
-<h1>Scratch</h1>
+<!-- Heading -->
+<div class="heading">
+
+    <!-- Heading -->
+    <div>
+        <h1>Scratch</h1>
+    </div>
+
+    <!-- Refresh Data From API -->
+    <div class="button-container">
+        <shared-button
+            buttonText="Refresh Data From API"
+            colour="primary"
+            icon="cloud"
+            [loaded]="apiLoaded"
+            (clickEvent)="refreshDataFromApi()"
+        ></shared-button>
+    </div>
+</div>
