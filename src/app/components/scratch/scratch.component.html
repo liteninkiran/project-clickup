@@ -7,10 +7,22 @@
     </div>
 
     <div>
-        <form class="example-form">
+        <form [formGroup]="form">
             <mat-form-field class="api-key">
                 <mat-label>API KEY</mat-label>
-                <input matInput placeholder="e.g. pk_AS7H58C&S5..." value="">
+                <input
+                    matInput
+                    placeholder="e.g. pk_AS7H58C&S5..."
+                    value=""
+                    name="apiKey"
+                    formControlName="apiKey"
+                >
+
+                <!-- Error: Required -->
+                <mat-error *ngIf="form.controls['apiKey']">
+                    Enter your API key <a href="https://help.clickup.com/hc/en-us/articles/6303426241687-Use-the-ClickUp-API" target="_blank">Click here to find out more</a>
+                </mat-error>
+
             </mat-form-field>
         </form>
     </div>
@@ -18,11 +30,18 @@
     <!-- Refresh Data From API -->
     <div class="button-container">
         <shared-button
-            buttonText="Refresh Data From API"
+            buttonText="Load Teams"
             colour="primary"
             icon="cloud"
             [loaded]="apiLoaded"
-            (clickEvent)="refreshDataFromApi()"
+            [disabled]="!form.valid"
+            (clickEvent)="loadTeams()"
         ></shared-button>
     </div>
+</div>
+
+<div class="form-val">
+    <p>Form: {{ form.value | json }}</p>
+    <p>Form Valid: {{ form.valid }}</p>
+    <p>Teams:</p><pre>{{ teams | json }}</pre>
 </div>

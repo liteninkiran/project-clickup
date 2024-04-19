@@ -10,6 +10,7 @@ export class ButtonComponent implements OnInit {
     @Input() public colour = 'Primary';
     @Input() public icon = '';
     @Input() public loaded = false;
+    @Input() public disabled = false;
 
     @Output() public clickEvent = new EventEmitter<void>();
 
