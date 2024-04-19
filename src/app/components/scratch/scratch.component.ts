@@ -21,10 +21,11 @@ export class ScratchComponent implements OnInit {
     }
 
     public refreshDataFromApi(): void {
-        this.apiLoaded = false;
-        this.clickUpService
-            .loadDataFromApi()
-            .subscribe((res: any) => this.showRoleSnackBar(res));
+        console.log();
+        // this.apiLoaded = false;
+        // this.clickUpService
+        //     .loadDataFromApi()
+        //     .subscribe((res: any) => this.showRoleSnackBar(res));
     }
 
     private showRoleSnackBar(res: any) {
