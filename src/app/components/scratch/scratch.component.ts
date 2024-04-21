@@ -12,7 +12,9 @@ import { Team, TeamResponse } from '../../interfaces/teams';
     providers: [ClickUpService],
 })
 export class ScratchComponent implements OnInit {
+    public displayedColumns = ['name', 'colour', 'members'];
     public teams: Team[] | undefined;
+    public expandedTeam: Team | null = null;
     public apiLoaded = false;
     public form = this.fb.group({
         apiKey: ['', {
@@ -40,6 +42,15 @@ export class ScratchComponent implements OnInit {
                 next: (res: TeamResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),
             });
+    }
+
+    public onToggleTeam(team: Team): void {
+        if (team === this.expandedTeam) {
+            this.expandedTeam = null;
+        }
+        else {
+            this.expandedTeam = team;
+        }
     }
 
     private handleUpdateResponse(res: TeamResponse) {

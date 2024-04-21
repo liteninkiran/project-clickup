@@ -41,7 +41,47 @@
     </div>
 </div>
 
-<div class="form-val" *ngIf="teams !== undefined">
-    <p>Rows: {{ teams.length }}</p>
-    <p>Response:</p><pre>{{ teams | json }}</pre>
+<div *ngIf="teams">
+
+    <table
+        mat-table
+        class="teams-table mat-elevation-z8"
+        [dataSource]="teams"
+        multiTemplateDataRows
+    >
+
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let team">{{ team.name }}</td>
+        </ng-container>
+
+        <!-- Colour -->
+        <ng-container matColumnDef="colour">
+            <th mat-header-cell *matHeaderCellDef>Colour</th>
+            <td mat-cell *matCellDef="let team">{{ team.color }}</td>
+        </ng-container>
+
+        <!-- Member Count -->
+        <ng-container matColumnDef="members">
+            <th mat-header-cell *matHeaderCellDef>Members</th>
+            <td mat-cell *matCellDef="let team">{{ team.members.length }}</td>
+        </ng-container>
+
+        <!-- Members -->
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let team" colspan="3"><pre>{{ team.members | json }}</pre></td>
+        </ng-container>
+
+        <!-- Header Row Definiton -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+        <!-- Data Row Definiton -->
+        <tr mat-row *matRowDef="let team; columns: displayedColumns" (click)="onToggleTeam(team)"></tr>
+
+        <!-- Expanded Row -->
+        <tr mat-row *matRowDef="let team; columns: ['expandedDetail']" [class.collapsed-detail]="team != expandedTeam"></tr>
+
+    </table>
+
 </div>
