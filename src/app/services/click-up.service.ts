@@ -8,7 +8,8 @@ export class ClickUpService {
 
     constructor(private http: HttpClient) {}
 
-    public loadTeams(apiKey: string): Observable<TeamResponse> {
+    public loadTeams(): Observable<TeamResponse> {
+        const apiKey: string = process.env['CLICKUP_API_KEY'] ?? '';
         const headerBody = { 'Authorization': apiKey }
         const headers = new HttpHeaders(headerBody);
         const url = 'https://api.clickup.com/api/v2/team';
