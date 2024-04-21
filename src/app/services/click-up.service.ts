@@ -1,17 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Team } from '../interfaces/teams';
+import { TeamResponse } from '../interfaces/teams';
 
 @Injectable()
 export class ClickUpService {
 
     constructor(private http: HttpClient) {}
 
-    public loadTeams(apiKey: string): Observable<Team[]> {
+    public loadTeams(apiKey: string): Observable<TeamResponse> {
         const headerBody = { 'Authorization': apiKey }
         const headers = new HttpHeaders(headerBody);
         const url = 'https://api.clickup.com/api/v2/team';
-        return this.http.get<Team[]>(url, { headers });
+        return this.http.get<TeamResponse>(url, { headers });
     }
 }

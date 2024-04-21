@@ -3,7 +3,7 @@ import { ClickUpService } from '../../services/click-up.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Team } from '../../interfaces/teams';
+import { Team, TeamResponse } from '../../interfaces/teams';
 
 @Component({
     selector: 'app-scratch',
@@ -37,13 +37,14 @@ export class ScratchComponent implements OnInit {
         this.clickUpService
             .loadTeams(this.form.value.apiKey ?? '')
             .subscribe({
-                next: (res: any) => this.handleUpdateResponse(res),
+                next: (res: TeamResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),
             });
     }
 
-    private handleUpdateResponse(res: any) {
-        this.teams = res;
+    private handleUpdateResponse(res: TeamResponse) {
+        console.log(res.teams);
+        this.teams = res.teams;
         this.showRoleSnackBar('Finished', 2000);
     }
 

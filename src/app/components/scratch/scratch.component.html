@@ -41,8 +41,7 @@
     </div>
 </div>
 
-<div class="form-val">
-    <p>Form: {{ form.value | json }}</p>
-    <p>Form Valid: {{ form.valid }}</p>
-    <p>Teams:</p><pre>{{ teams | json }}</pre>
+<div class="form-val" *ngIf="teams !== undefined">
+    <p>Rows: {{ teams.length }}</p>
+    <p>Response:</p><pre>{{ teams | json }}</pre>
 </div>

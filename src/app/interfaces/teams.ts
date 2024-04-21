@@ -1,3 +1,7 @@
+export interface TeamResponse {
+    teams: Team[];
+}
+
 export interface Team {
     avatar: string;
     color: string;
