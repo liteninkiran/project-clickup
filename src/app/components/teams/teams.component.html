@@ -1,0 +1,74 @@
+<!-- Heading -->
+<div class="heading">
+
+    <!-- Heading -->
+    <div>
+        <h1>Teams</h1>
+    </div>
+
+</div>
+
+<div *ngIf="teams" class="table-container">
+
+    <table
+        mat-table
+        class="teams-table mat-elevation-z8"
+        [dataSource]="teams"
+        multiTemplateDataRows
+    >
+
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let team">{{ team.name }}</td>
+        </ng-container>
+
+        <!-- Colour -->
+        <ng-container matColumnDef="colour">
+            <th mat-header-cell *matHeaderCellDef>Colour</th>
+            <td mat-cell *matCellDef="let team"><mat-chip [ngStyle]="{'background-color': team.color}">{{ team.color }}</mat-chip></td>
+        </ng-container>
+
+        <!-- Member Count -->
+        <ng-container matColumnDef="members">
+            <th mat-header-cell *matHeaderCellDef>Members</th>
+            <td mat-cell *matCellDef="let team" class="numeric">{{ team.members.length }}</td>
+        </ng-container>
+
+        <!-- Members -->
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let team" colspan="4">
+                <mat-list *ngFor="let member of team.members">
+                    <img [src]="member.user.profilePicture ?? 'assets/default.jpg'">
+                    <mat-list-item>
+                        <div matListItemTitle>{{ member.user.username }}</div>
+                        <div matListItemLine>{{ member.user.email }}</div>
+                    </mat-list-item>
+                </mat-list>
+            </td>
+        </ng-container>
+
+        <!-- Workspaces Button -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Workspace Link</th>
+            <td mat-cell *matCellDef="let team" (click)="$event.stopPropagation()">
+                <a routerLink="/workspaces/{{ team.id }}">
+                    <button mat-raised-button color="primary">
+                        <mat-icon class="material-icons-outlined">workspaces</mat-icon>
+                    </button>
+                </a>
+            </td>
+        </ng-container>
+
+        <!-- Header Row Definiton -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+        <!-- Data Row Definiton -->
+        <tr mat-row *matRowDef="let team; columns: displayedColumns" (click)="onToggleTeam(team)"></tr>
+
+        <!-- Expanded Row -->
+        <tr mat-row *matRowDef="let team; columns: ['expandedDetail']" [class.collapsed-detail]="team != expandedTeam"></tr>
+
+    </table>
+
+</div>

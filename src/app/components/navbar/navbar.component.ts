@@ -13,6 +13,11 @@ export class NavbarComponent {
             text: 'Home',
         },
         {
+            link: '/teams',
+            icon: 'groups',
+            text: 'Teams',
+        },
+        {
             link: '/scratch',
             icon: 'color_lens',
             text: 'Scratch',

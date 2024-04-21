@@ -16,12 +16,14 @@ import { HomeComponent } from './components/home/home.component';
 import { ScratchComponent } from './components/scratch/scratch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedModule } from './components/shared/shared.module';
+import { TeamsComponent } from './components/teams/teams.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         HomeComponent,
         ScratchComponent,
+        TeamsComponent,
         NavbarComponent,
     ],
     imports: [
