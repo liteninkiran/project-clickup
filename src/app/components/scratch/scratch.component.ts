@@ -11,7 +11,7 @@ import { Team, TeamResponse } from '../../interfaces/teams';
     providers: [ClickUpService],
 })
 export class ScratchComponent implements OnInit {
-    public displayedColumns = ['name', 'colour', 'members'];
+    public displayedColumns = ['name', 'members', 'colour', 'actions'];
     public teams: Team[] | undefined;
     public expandedTeam: Team | null = null;
     public apiLoaded = false;
@@ -42,6 +42,10 @@ export class ScratchComponent implements OnInit {
         else {
             this.expandedTeam = team;
         }
+    }
+
+    public onActionClick(team: Team): void {
+
     }
 
     private handleUpdateResponse(res: TeamResponse) {
