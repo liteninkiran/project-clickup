@@ -3,34 +3,26 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
-import { Space, SpaceResponse } from '../../interfaces/spaces';
+import { Folder, FolderResponse } from '../../interfaces/folders';
 import { ClickUpService } from '../../services/click-up.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-spaces',
-    templateUrl: './spaces.component.html',
-    styleUrl: './spaces.component.scss',
+    selector: 'app-folders',
+    templateUrl: './folders.component.html',
+    styleUrl: './folders.component.scss',
     providers: [ClickUpService],
 })
-export class SpacesComponent implements OnInit {
+export class FoldersComponent implements OnInit {
 
     public displayedColumns = [
         'id',
         'name',
-        'color',
-        'avatar',
-        'statuses',
-        'private',
-        'admin_can_manage',
-        'multiple_assignees',
-        'archived',
-        'folders',
     ];
-    public expandedRow: Space | null = null;
+    public expandedRow: Folder | null = null;
     public apiLoaded = false;
-    public dataSource!: MatTableDataSource<Space>;
+    public dataSource!: MatTableDataSource<Folder>;
     public id: number = 0;
 
     @ViewChild(MatSort, { static: true }) public  sort!: MatSort;
@@ -50,24 +42,24 @@ export class SpacesComponent implements OnInit {
     public loadData(): void {
         this.apiLoaded = false;
         this.clickUpService
-            .loadSpaces(this.id)
+            .loadFolders(this.id)
             .subscribe({
-                next: (res: SpaceResponse) => this.handleUpdateResponse(res),
+                next: (res: FolderResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),
             });
     }
 
-    public onToggleRow(space: Space): void {
-        if (space === this.expandedRow) {
+    public onToggleRow(folder: Folder): void {
+        if (folder === this.expandedRow) {
             this.expandedRow = null;
         }
         else {
-            this.expandedRow = space;
+            this.expandedRow = folder;
         }
     }
 
-    private handleUpdateResponse(res: SpaceResponse) {
-        this.dataSource = new MatTableDataSource(res.spaces);
+    private handleUpdateResponse(res: FolderResponse) {
+        this.dataSource = new MatTableDataSource(res.folders);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
         this.apiLoaded = true;

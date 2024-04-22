@@ -4,6 +4,7 @@ import { ScratchComponent } from './components/scratch/scratch.component';
 import { HomeComponent } from './components/home/home.component';
 import { TeamsComponent } from './components/teams/teams.component';
 import { SpacesComponent } from './components/spaces/spaces.component';
+import { FoldersComponent } from './components/folders/folders.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
         path: 'team/:id/spaces',
         component: SpacesComponent,
+    },
+    {
+        path: 'space/:id/folders',
+        component: FoldersComponent,
     },
     {
         path: 'scratch',

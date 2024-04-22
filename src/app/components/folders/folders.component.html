@@ -1,0 +1,65 @@
+<!-- Heading -->
+<div class="heading">
+
+    <!-- Heading -->
+    <div>
+        <h1>Folders</h1>
+    </div>
+
+</div>
+
+<div class="folders-container">
+
+    <table
+        mat-table
+        matSort
+        class="folders-table mat-elevation-z8"
+        [dataSource]="dataSource"
+        multiTemplateDataRows
+    >
+
+        <!-- ID -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header class="header-align-right" arrowPosition="before">ID</th>
+            <td mat-cell *matCellDef="let folder" class="numeric">{{ folder.id }}</td>
+        </ng-container>
+
+        <!-- Name -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let folder">{{ folder.name }}</td>
+        </ng-container>
+
+        <!-- Expanded Detail -->
+        <ng-container matColumnDef="expandedDetail">
+            <td mat-cell *matCellDef="let space" colspan="2">
+                Coming soon
+            </td>
+        </ng-container>
+
+        <!-- Lists Button -->
+        <ng-container matColumnDef="lists">
+            <th mat-header-cell *matHeaderCellDef>Folders</th>
+            <td mat-cell *matCellDef="let folder" (click)="$event.stopPropagation()">
+                <a routerLink="/folder/{{ folder.id }}/folder">
+                    <button mat-raised-button color="primary">
+                        <mat-icon class="material-icons-outlined">format_list_bulleted</mat-icon>
+                    </button>
+                </a>
+            </td>
+        </ng-container>
+
+        <!-- Header Row Definiton -->
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+        <!-- Data Row Definiton -->
+        <tr mat-row *matRowDef="let folder; columns: displayedColumns" (click)="onToggleRow(folder)"></tr>
+
+        <!-- Expanded Row -->
+        <tr mat-row *matRowDef="let folder; columns: ['expandedDetail']" [class.collapsed-detail]="folder != expandedRow"></tr>
+
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="mat-elevation-z8"></mat-paginator>
+
+</div>

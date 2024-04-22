@@ -19,15 +19,20 @@ import { SharedModule } from './components/shared/shared.module';
 import { TeamsComponent } from './components/teams/teams.component';
 import { SpacesComponent } from './components/spaces/spaces.component';
 import { BooleanPipe } from './pipes/boolean.pipe';
+import { FoldersComponent } from './components/folders/folders.component';
 
 @NgModule({
     declarations: [
+        // Components
         AppComponent,
         HomeComponent,
         ScratchComponent,
         TeamsComponent,
         NavbarComponent,
         SpacesComponent,
+        FoldersComponent,
+
+        // Pipes
         BooleanPipe,
     ],
     imports: [
