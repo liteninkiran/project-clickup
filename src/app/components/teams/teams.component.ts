@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ClickUpService } from '../../services/click-up.service';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Team, TeamResponse } from '../../interfaces/teams';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
+import { MatTableDataSource } from '@angular/material/table';
+import { Team, TeamResponse } from '../../interfaces/teams';
+import { ClickUpService } from '../../services/click-up.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
     selector: 'app-teams',
@@ -15,7 +15,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class TeamsComponent implements OnInit {
     public displayedColumns = ['name', 'members', 'colour', 'actions'];
-    public expandedTeam: Team | null = null;
+    public expandedRow: Team | null = null;
     public apiLoaded = false;
     public dataSource!: MatTableDataSource<Team>;
 
@@ -28,10 +28,10 @@ export class TeamsComponent implements OnInit {
     ) { }
 
     public ngOnInit(): void {
-        this.loadTeams();
+        this.loadData();
     }
 
-    public loadTeams(): void {
+    public loadData(): void {
         this.apiLoaded = false;
         this.clickUpService
             .loadTeams()
@@ -41,12 +41,12 @@ export class TeamsComponent implements OnInit {
             });
     }
 
-    public onToggleTeam(team: Team): void {
-        if (team === this.expandedTeam) {
-            this.expandedTeam = null;
+    public onToggleRow(team: Team): void {
+        if (team === this.expandedRow) {
+            this.expandedRow = null;
         }
         else {
-            this.expandedTeam = team;
+            this.expandedRow = team;
         }
     }
 

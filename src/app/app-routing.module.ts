@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ScratchComponent } from './components/scratch/scratch.component';
 import { HomeComponent } from './components/home/home.component';
 import { TeamsComponent } from './components/teams/teams.component';
+import { SpacesComponent } from './components/spaces/spaces.component';
 
 const routes: Routes = [
     {
@@ -10,12 +11,16 @@ const routes: Routes = [
         component: HomeComponent,
     },
     {
-        path: 'scratch',
-        component: ScratchComponent,
-    },
-    {
         path: 'teams',
         component: TeamsComponent,
+    },
+    {
+        path: 'team/:id/spaces',
+        component: SpacesComponent,
+    },
+    {
+        path: 'scratch',
+        component: ScratchComponent,
     },
     {
         path: '**',
