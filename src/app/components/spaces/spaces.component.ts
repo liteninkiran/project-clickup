@@ -25,6 +25,7 @@ export class SpacesComponent implements OnInit {
         'admin_can_manage',
         'multiple_assignees',
         'archived',
+        'folders',
     ];
     public expandedRow: Space | null = null;
     public apiLoaded = false;

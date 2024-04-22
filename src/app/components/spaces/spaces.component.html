@@ -80,6 +80,18 @@
             </td>
         </ng-container>        
 
+        <!-- Folders Button -->
+        <ng-container matColumnDef="folders">
+            <th mat-header-cell *matHeaderCellDef>Folders</th>
+            <td mat-cell *matCellDef="let space" (click)="$event.stopPropagation()">
+                <a routerLink="/space/{{ space.id }}/folder">
+                    <button mat-raised-button color="primary">
+                        <mat-icon class="material-icons-outlined">folder_copy</mat-icon>
+                    </button>
+                </a>
+            </td>
+        </ng-container>
+
         <!-- Header Row Definiton -->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 
