@@ -10,7 +10,7 @@ export class ClickUpService {
 
     constructor(private http: HttpClient) {}
 
-    public loadTeams(): Observable<TeamsResponse> {
+    public getTeams(): Observable<TeamsResponse> {
         const apiKey: string = process.env['CLICKUP_API_KEY'] ?? '';
         const headerBody = { 'Authorization': apiKey }
         const headers = new HttpHeaders(headerBody);
@@ -18,7 +18,7 @@ export class ClickUpService {
         return this.http.get<TeamsResponse>(url, { headers });
     }
 
-    public loadSpaces(teamId: number): Observable<SpacesResponse> {
+    public getSpaces(teamId: number): Observable<SpacesResponse> {
         const apiKey: string = process.env['CLICKUP_API_KEY'] ?? '';
         const headerBody = { 'Authorization': apiKey }
         const headers = new HttpHeaders(headerBody);
@@ -26,7 +26,7 @@ export class ClickUpService {
         return this.http.get<SpacesResponse>(url, { headers });
     }
 
-    public loadFolders(spaceId: number): Observable<FoldersResponse> {
+    public getFolders(spaceId: number): Observable<FoldersResponse> {
         const apiKey: string = process.env['CLICKUP_API_KEY'] ?? '';
         const headerBody = { 'Authorization': apiKey }
         const headers = new HttpHeaders(headerBody);

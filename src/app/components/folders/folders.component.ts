@@ -51,7 +51,7 @@ export class FoldersComponent implements OnInit {
     public loadData(): void {
         this.apiLoaded = false;
         this.clickUpService
-            .loadFolders(this.id)
+            .getFolders(this.id)
             .subscribe({
                 next: (res: FoldersResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),

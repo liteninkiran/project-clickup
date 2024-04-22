@@ -50,7 +50,7 @@ export class SpacesComponent implements OnInit {
     public loadData(): void {
         this.apiLoaded = false;
         this.clickUpService
-            .loadSpaces(this.id)
+            .getSpaces(this.id)
             .subscribe({
                 next: (res: SpacesResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),

@@ -34,7 +34,7 @@ export class TeamsComponent implements OnInit {
     public loadData(): void {
         this.apiLoaded = false;
         this.clickUpService
-            .loadTeams()
+            .getTeams()
             .subscribe({
                 next: (res: TeamsResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),
