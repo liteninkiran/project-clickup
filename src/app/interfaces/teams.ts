@@ -1,4 +1,4 @@
-export interface TeamResponse {
+export interface TeamsResponse {
     teams: Team[];
 }
 

@@ -1,6 +1,6 @@
 import { Space, Status } from "./spaces";
 
-export interface FolderResponse {
+export interface FoldersResponse {
     folders: Folder[];
 }
 

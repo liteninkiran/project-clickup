@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
-import { Team, TeamResponse } from '../../interfaces/teams';
+import { Team, TeamsResponse } from '../../interfaces/teams';
 import { ClickUpService } from '../../services/click-up.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -36,7 +36,7 @@ export class TeamsComponent implements OnInit {
         this.clickUpService
             .loadTeams()
             .subscribe({
-                next: (res: TeamResponse) => this.handleUpdateResponse(res),
+                next: (res: TeamsResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),
             });
     }
@@ -50,7 +50,7 @@ export class TeamsComponent implements OnInit {
         }
     }
 
-    private handleUpdateResponse(res: TeamResponse) {
+    private handleUpdateResponse(res: TeamsResponse) {
         this.dataSource = new MatTableDataSource(res.teams);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;

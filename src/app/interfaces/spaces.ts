@@ -1,4 +1,4 @@
-export interface SpaceResponse {
+export interface SpacesResponse {
     spaces: Space[];
 }
 

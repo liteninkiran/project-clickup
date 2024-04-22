@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
-import { Folder, FolderResponse } from '../../interfaces/folders';
+import { Folder, FoldersResponse } from '../../interfaces/folders';
 import { ClickUpService } from '../../services/click-up.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
@@ -53,7 +53,7 @@ export class FoldersComponent implements OnInit {
         this.clickUpService
             .loadFolders(this.id)
             .subscribe({
-                next: (res: FolderResponse) => this.handleUpdateResponse(res),
+                next: (res: FoldersResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),
             });
     }
@@ -67,7 +67,7 @@ export class FoldersComponent implements OnInit {
         }
     }
 
-    private handleUpdateResponse(res: FolderResponse) {
+    private handleUpdateResponse(res: FoldersResponse) {
         this.dataSource = new MatTableDataSource(res.folders);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
