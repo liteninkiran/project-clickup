@@ -17,6 +17,7 @@ import { ScratchComponent } from './components/scratch/scratch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedModule } from './components/shared/shared.module';
 import { TeamsComponent } from './components/teams/teams.component';
+import { SpacesComponent } from './components/spaces/spaces.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { TeamsComponent } from './components/teams/teams.component';
         ScratchComponent,
         TeamsComponent,
         NavbarComponent,
+        SpacesComponent,
     ],
     imports: [
         // Built-in Modules
