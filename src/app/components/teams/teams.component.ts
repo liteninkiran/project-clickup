@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ClickUpService } from '../../services/click-up.service';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Team, TeamResponse } from '../../interfaces/teams';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
     selector: 'app-teams',
@@ -15,6 +18,10 @@ export class TeamsComponent implements OnInit {
     public teams: Team[] | undefined;
     public expandedTeam: Team | null = null;
     public apiLoaded = false;
+    public dataSource!: MatTableDataSource<Team>;
+
+    @ViewChild(MatSort, { static: true }) public  sort!: MatSort;
+    @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;
 
     constructor(
         readonly clickUpService: ClickUpService,
@@ -50,6 +57,9 @@ export class TeamsComponent implements OnInit {
 
     private handleUpdateResponse(res: TeamResponse) {
         this.teams = res.teams;
+        this.dataSource = new MatTableDataSource(res.teams);
+        this.dataSource.sort = this.sort;
+        this.dataSource.paginator = this.paginator;
         this.apiLoaded = true;
     }
 
