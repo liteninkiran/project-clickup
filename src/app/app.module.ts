@@ -18,6 +18,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedModule } from './components/shared/shared.module';
 import { TeamsComponent } from './components/teams/teams.component';
 import { SpacesComponent } from './components/spaces/spaces.component';
+import { BooleanPipe } from './pipes/boolean.pipe';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { SpacesComponent } from './components/spaces/spaces.component';
         TeamsComponent,
         NavbarComponent,
         SpacesComponent,
+        BooleanPipe,
     ],
     imports: [
         // Built-in Modules

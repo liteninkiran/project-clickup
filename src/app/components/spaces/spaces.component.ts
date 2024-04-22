@@ -14,16 +14,16 @@ import { HttpErrorResponse } from '@angular/common/http';
     providers: [ClickUpService],
 })
 export class SpacesComponent implements OnInit {
+
     public displayedColumns = [
         'id',
         'name',
         'color',
-        'private',
         'avatar',
-        'admin_can_manage',
         'statuses',
+        'private',
+        'admin_can_manage',
         'multiple_assignees',
-        'features',
         'archived',
     ];
     public expandedRow: Space | null = null;

@@ -40,7 +40,10 @@
 
 .numeric {
     text-align: right;
-    width: 100px;
+}
+
+.numeric-header {
+    text-align: right;
 }
 
 mat-list {
@@ -56,4 +59,13 @@ mat-list {
 mat-paginator {
     margin-top: 10px;
     margin-bottom: 30px;
+}
+
+mat-chip {
+    width: 80px;
+}
+
+.header-align-right {
+    text-align: right;
+    justify-content: flex-end;
 }
