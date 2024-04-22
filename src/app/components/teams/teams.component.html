@@ -49,13 +49,13 @@
             </td>
         </ng-container>
 
-        <!-- Workspaces Button -->
+        <!-- Spaces Button -->
         <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef>Workspace Link</th>
+            <th mat-header-cell *matHeaderCellDef>Spaces</th>
             <td mat-cell *matCellDef="let team" (click)="$event.stopPropagation()">
-                <a routerLink="/workspaces/{{ team.id }}">
+                <a routerLink="/team/{{ team.id }}/space">
                     <button mat-raised-button color="primary">
-                        <mat-icon class="material-icons-outlined">workspaces</mat-icon>
+                        <mat-icon class="material-icons-outlined">rocket</mat-icon>
                     </button>
                 </a>
             </td>

@@ -15,7 +15,6 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class TeamsComponent implements OnInit {
     public displayedColumns = ['name', 'members', 'colour', 'actions'];
-    public teams: Team[] | undefined;
     public expandedTeam: Team | null = null;
     public apiLoaded = false;
     public dataSource!: MatTableDataSource<Team>;
@@ -51,12 +50,7 @@ export class TeamsComponent implements OnInit {
         }
     }
 
-    public onActionClick(team: Team): void {
-
-    }
-
     private handleUpdateResponse(res: TeamResponse) {
-        this.teams = res.teams;
         this.dataSource = new MatTableDataSource(res.teams);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
