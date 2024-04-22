@@ -18,7 +18,16 @@ export class FoldersComponent implements OnInit {
 
     public displayedColumns = [
         'id',
+        'orderindex',
         'name',
+        'permission_level',
+        'list_count',
+        'task_count',
+        'statuses',
+        'override_statuses',
+        'hidden',
+        'archived',
+        'lists',
     ];
     public expandedRow: Folder | null = null;
     public apiLoaded = false;
@@ -62,6 +71,10 @@ export class FoldersComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res.folders);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
+        this.dataSource.sortingDataAccessor = (data: any, sortHeaderId: string) => {
+            if (sortHeaderId == 'list_count') return data.lists.length;
+            return data[sortHeaderId as keyof typeof data];
+        };
         this.apiLoaded = true;
     }
 
