@@ -51,7 +51,7 @@ export class WorkspacesComponent implements OnInit {
     }
 
     private handleUpdateResponse(res: WorkspacesResponse) {
-        this.dataSource = new MatTableDataSource(res.workspaces);
+        this.dataSource = new MatTableDataSource(res.teams);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
         this.apiLoaded = true;

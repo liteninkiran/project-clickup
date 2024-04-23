@@ -1,5 +1,5 @@
 export interface WorkspacesResponse {
-    workspaces: Workspace[];
+    teams: Workspace[];
 }
 
 export interface Workspace {
