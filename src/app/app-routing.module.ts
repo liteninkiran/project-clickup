@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { WorkspacesComponent } from './components/workspaces/workspaces.component';
 import { SpacesComponent } from './components/spaces/spaces.component';
 import { FoldersComponent } from './components/folders/folders.component';
+import { ListsComponent } from './components/lists/lists.component';
 
 const routes: Routes = [
     {
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'space/:id/folders',
         component: FoldersComponent,
+    },
+    {
+        path: 'folder/:id/lists',
+        component: ListsComponent,
     },
     {
         path: 'scratch',

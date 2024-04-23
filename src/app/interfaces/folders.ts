@@ -1,4 +1,4 @@
-import { Space, Status } from "./spaces";
+import { Status } from './spaces';
 
 export interface FoldersResponse {
     folders: Folder[];
@@ -16,4 +16,9 @@ export interface Folder {
     statuses: Status[];
     lists: Array<any>;
     permission_level: boolean;
+}
+
+interface Space {
+    id: number;
+    name: string;
 }

@@ -20,6 +20,7 @@ import { WorkspacesComponent } from './components/workspaces/workspaces.componen
 import { SpacesComponent } from './components/spaces/spaces.component';
 import { BooleanPipe } from './pipes/boolean.pipe';
 import { FoldersComponent } from './components/folders/folders.component';
+import { ListsComponent } from './components/lists/lists.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { FoldersComponent } from './components/folders/folders.component';
         NavbarComponent,
         SpacesComponent,
         FoldersComponent,
+        ListsComponent,
 
         // Pipes
         BooleanPipe,

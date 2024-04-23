@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { WorkspacesResponse } from '../interfaces/workspaces';
 import { SpacesResponse } from '../interfaces/spaces';
 import { FoldersResponse } from '../interfaces/folders';
+import { ListsResponse } from '../interfaces/lists';
 
 @Injectable()
 export class ClickUpService {
@@ -32,5 +33,13 @@ export class ClickUpService {
         const headers = new HttpHeaders(headerBody);
         const url = `https://api.clickup.com/api/v2/space/${spaceId}/folder`;
         return this.http.get<FoldersResponse>(url, { headers });
+    }
+
+    public getLists(folderId: number): Observable<ListsResponse> {
+        const apiKey: string = process.env['CLICKUP_API_KEY'] ?? '';
+        const headerBody = { 'Authorization': apiKey }
+        const headers = new HttpHeaders(headerBody);
+        const url = `https://api.clickup.com/api/v2/folder/${folderId}/list`;
+        return this.http.get<ListsResponse>(url, { headers });
     }
 }
