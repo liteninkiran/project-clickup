@@ -3,21 +3,21 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
-import { Team, TeamsResponse } from '../../interfaces/teams';
+import { Workspace, WorkspacesResponse } from '../../interfaces/workspaces';
 import { ClickUpService } from '../../services/click-up.service';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-    selector: 'app-teams',
-    templateUrl: './teams.component.html',
-    styleUrl: './teams.component.scss',
+    selector: 'app-workspaces',
+    templateUrl: './workspaces.component.html',
+    styleUrl: './workspaces.component.scss',
     providers: [ClickUpService],
 })
-export class TeamsComponent implements OnInit {
+export class WorkspacesComponent implements OnInit {
     public displayedColumns = ['name', 'members', 'colour', 'actions'];
-    public expandedRow: Team | null = null;
+    public expandedRow: Workspace | null = null;
     public apiLoaded = false;
-    public dataSource!: MatTableDataSource<Team>;
+    public dataSource!: MatTableDataSource<Workspace>;
 
     @ViewChild(MatSort, { static: true }) public  sort!: MatSort;
     @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;
@@ -34,23 +34,23 @@ export class TeamsComponent implements OnInit {
     public loadData(): void {
         this.apiLoaded = false;
         this.clickUpService
-            .getTeams()
+            .getWorkspaces()
             .subscribe({
-                next: (res: TeamsResponse) => this.handleUpdateResponse(res),
+                next: (res: WorkspacesResponse) => this.handleUpdateResponse(res),
                 error: (err: HttpErrorResponse) => this.handleErrorResponse(err),
             });
     }
 
-    public onToggleRow(team: Team): void {
-        if (team === this.expandedRow) {
+    public onToggleRow(workspace: Workspace): void {
+        if (workspace === this.expandedRow) {
             this.expandedRow = null;
         }
         else {
-            this.expandedRow = team;
+            this.expandedRow = workspace;
         }
     }
 
-    private handleUpdateResponse(res: TeamsResponse) {
+    private handleUpdateResponse(res: WorkspacesResponse) {
         this.dataSource = new MatTableDataSource(res.teams);
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
