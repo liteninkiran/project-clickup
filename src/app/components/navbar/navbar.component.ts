@@ -13,9 +13,9 @@ export class NavbarComponent {
             text: 'Home',
         },
         {
-            link: '/teams',
+            link: '/workspaces',
             icon: 'groups',
-            text: 'Teams',
+            text: 'Workspaces',
         },
         {
             link: '/scratch',

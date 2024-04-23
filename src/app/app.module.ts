@@ -16,7 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ScratchComponent } from './components/scratch/scratch.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SharedModule } from './components/shared/shared.module';
-import { TeamsComponent } from './components/teams/teams.component';
+import { WorkspacesComponent } from './components/workspaces/workspaces.component';
 import { SpacesComponent } from './components/spaces/spaces.component';
 import { BooleanPipe } from './pipes/boolean.pipe';
 import { FoldersComponent } from './components/folders/folders.component';
@@ -27,7 +27,7 @@ import { FoldersComponent } from './components/folders/folders.component';
         AppComponent,
         HomeComponent,
         ScratchComponent,
-        TeamsComponent,
+        WorkspacesComponent,
         NavbarComponent,
         SpacesComponent,
         FoldersComponent,

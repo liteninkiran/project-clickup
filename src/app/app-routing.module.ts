@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ScratchComponent } from './components/scratch/scratch.component';
 import { HomeComponent } from './components/home/home.component';
-import { TeamsComponent } from './components/teams/teams.component';
+import { WorkspacesComponent } from './components/workspaces/workspaces.component';
 import { SpacesComponent } from './components/spaces/spaces.component';
 import { FoldersComponent } from './components/folders/folders.component';
 
@@ -12,11 +12,11 @@ const routes: Routes = [
         component: HomeComponent,
     },
     {
-        path: 'teams',
-        component: TeamsComponent,
+        path: 'workspaces',
+        component: WorkspacesComponent,
     },
     {
-        path: 'team/:id/spaces',
+        path: 'workspace/:id/spaces',
         component: SpacesComponent,
     },
     {

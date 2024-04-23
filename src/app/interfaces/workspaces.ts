@@ -1,8 +1,8 @@
-export interface TeamsResponse {
-    teams: Team[];
+export interface WorkspacesResponse {
+    workspaces: Workspace[];
 }
 
-export interface Team {
+export interface Workspace {
     avatar: string;
     color: string;
     members: Member[];
