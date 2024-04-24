@@ -6,6 +6,7 @@ import { WorkspacesComponent } from './components/workspaces/workspaces.componen
 import { SpacesComponent } from './components/spaces/spaces.component';
 import { FoldersComponent } from './components/folders/folders.component';
 import { ListsComponent } from './components/lists/lists.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 const routes: Routes = [
     {
@@ -27,6 +28,10 @@ const routes: Routes = [
     {
         path: 'folder/:id/lists',
         component: ListsComponent,
+    },
+    {
+        path: 'list/:id/tasks',
+        component: TasksComponent,
     },
     {
         path: 'scratch',

@@ -5,6 +5,7 @@ import { WorkspacesResponse } from '../interfaces/workspaces';
 import { SpacesResponse } from '../interfaces/spaces';
 import { FoldersResponse } from '../interfaces/folders';
 import { ListsResponse } from '../interfaces/lists';
+import { TasksResponse } from '../interfaces/tasks';
 
 @Injectable()
 export class ClickUpService {
@@ -41,5 +42,13 @@ export class ClickUpService {
         const headers = new HttpHeaders(headerBody);
         const url = `https://api.clickup.com/api/v2/folder/${folderId}/list`;
         return this.http.get<ListsResponse>(url, { headers });
+    }
+
+    public getTasks(listId: number): Observable<TasksResponse> {
+        const apiKey: string = process.env['CLICKUP_API_KEY'] ?? '';
+        const headerBody = { 'Authorization': apiKey }
+        const headers = new HttpHeaders(headerBody);
+        const url = `https://api.clickup.com/api/v2/list/${listId}/task`;
+        return this.http.get<TasksResponse>(url, { headers });
     }
 }

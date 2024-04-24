@@ -21,6 +21,7 @@ import { SpacesComponent } from './components/spaces/spaces.component';
 import { BooleanPipe } from './pipes/boolean.pipe';
 import { FoldersComponent } from './components/folders/folders.component';
 import { ListsComponent } from './components/lists/lists.component';
+import { TasksComponent } from './components/tasks/tasks.component';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import { ListsComponent } from './components/lists/lists.component';
         SpacesComponent,
         FoldersComponent,
         ListsComponent,
+        TasksComponent,
 
         // Pipes
         BooleanPipe,
