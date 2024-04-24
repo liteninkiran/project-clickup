@@ -82,7 +82,6 @@
                         {{ task.assignees[0].username + (task.assignees.length > 1 ? ' +' + (task.assignees.length - 1) : '') }}
                     </div>
                 </div>
-
             </td>
         </ng-container>
 
@@ -93,6 +92,19 @@
                 <div class="avatar-container" *ngIf="task.priority">
                     <div class="avatar avatar-icon" [ngStyle]="{ 'background-color': task.priority.color }"></div>
                     <div class="avatar-text">{{ task.priority.priority | Capitalise }}</div>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Tags -->
+        <ng-container matColumnDef="tags">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Tags</th>
+            <td mat-cell *matCellDef="let task">
+                <div *ngIf="task.tags.length > 0">
+                    <div class="avatar-container" *ngFor="let item of task.tags; index as i;">
+                        <div class="avatar avatar-icon avatar-box" [ngStyle]="{ 'background-color': item.tag_bg }"></div>
+                        <div class="avatar-text">{{ item.name | Capitalise }}</div>
+                    </div>
                 </div>
             </td>
         </ng-container>

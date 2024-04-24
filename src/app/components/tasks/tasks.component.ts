@@ -24,6 +24,7 @@ export class TasksComponent implements OnInit {
         'creator',
         'assignees',
         'priority',
+        'tags',
         'points',
     ];
     public expandedRow: Task | null = null;

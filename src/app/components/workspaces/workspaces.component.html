@@ -27,7 +27,7 @@
         <!-- Colour -->
         <ng-container matColumnDef="colour">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Colour</th>
-            <td mat-cell *matCellDef="let workspace"><mat-chip [ngStyle]="{'background-color': workspace.color}">{{ workspace.color }}</mat-chip></td>
+            <td mat-cell *matCellDef="let workspace"><mat-chip [ngStyle]="{'background-color': workspace.color}"></mat-chip></td>
         </ng-container>
 
         <!-- Member Count -->
