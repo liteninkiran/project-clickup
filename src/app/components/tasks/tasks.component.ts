@@ -65,7 +65,8 @@ export class TasksComponent implements OnInit {
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
         this.dataSource.sortingDataAccessor = (data: any, sortHeaderId: string) => {
-            if (sortHeaderId == 'status') return data.status.orderindex;
+            if (sortHeaderId === 'status') return data.status.orderindex;
+            if (sortHeaderId === 'orderindex') return +data.orderindex;
             return data[sortHeaderId as keyof typeof data];
         };
         this.apiLoaded = true;
