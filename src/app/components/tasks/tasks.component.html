@@ -67,9 +67,8 @@
 
         <!-- Assignees -->
         <ng-container matColumnDef="assignees">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header class="header-align-right" arrowPosition="before">Assignees</th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header>Assignees</th>
             <td mat-cell *matCellDef="let task">
-
                 <div class="avatar-container" *ngIf="task.assignees.length > 0">
                     <ng-container *ngFor="let item of task.assignees; index as i;">
                         <img
@@ -79,7 +78,6 @@
                             matTooltipPosition="above"
                         >
                     </ng-container>
-
                     <div class="avatar-text" [matTooltip]="task.assignees[0].email">
                         {{ task.assignees[0].username + (task.assignees.length > 1 ? ' +' + (task.assignees.length - 1) : '') }}
                     </div>

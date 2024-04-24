@@ -71,6 +71,8 @@ export class TasksComponent implements OnInit {
         this.dataSource.sortingDataAccessor = (data: any, sortHeaderId: string) => {
             if (sortHeaderId === 'status') return data.status.orderindex;
             if (sortHeaderId === 'orderindex') return +data.orderindex;
+            if (sortHeaderId === 'creator') return data.creator.username;
+            if (sortHeaderId === 'assignees') return data.assignees.length === 0 ? null : data.assignees[0].username;
             return data[sortHeaderId as keyof typeof data];
         };
         this.apiLoaded = true;
