@@ -17,10 +17,12 @@ import { ActivatedRoute } from '@angular/router';
 export class TasksComponent implements OnInit {
 
     public displayedColumns = [
-        'id',
-        'orderindex',
+        // 'id',
+        // 'orderindex',
         'name',
         'status',
+        'creator',
+        'points',
     ];
     public expandedRow: Task | null = null;
     public apiLoaded = false;

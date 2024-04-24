@@ -19,16 +19,16 @@
     >
 
         <!-- ID -->
-        <ng-container matColumnDef="id">
+        <!-- <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
             <td mat-cell *matCellDef="let task">{{ task.id | uppercase }}</td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Order Index -->
-        <ng-container matColumnDef="orderindex">
+        <!-- <ng-container matColumnDef="orderindex">
             <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header class="header-align-right" arrowPosition="before">Order Index</th>
             <td mat-cell *matCellDef="let task" class="numeric" [ngClass]="{ 'negative': task.orderindex < 0 }">{{ task.orderindex | number : '1.0-2' : 'en-GB' }}</td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Name -->
         <ng-container matColumnDef="name">
@@ -40,11 +40,28 @@
         <ng-container matColumnDef="status">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
             <td mat-cell *matCellDef="let task">
-                <div class="status-container">
-                    <div class="status-icon" [ngStyle]="{ 'background-color': task.status.color }"></div>
-                    <div class="status-text">{{ task.status.status | Capitalise }}</div>
+                <div class="avatar-container">
+                    <div class="avatar avatar-icon" [ngStyle]="{ 'background-color': task.status.color }"></div>
+                    <div class="avatar-text">{{ task.status.status | Capitalise }}</div>
                 </div>
             </td>
+        </ng-container>
+
+        <!-- Creator -->
+        <ng-container matColumnDef="creator">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Creator</th>
+            <td mat-cell *matCellDef="let task">
+                <div class="avatar-container">
+                    <img class="avatar avatar-user" [src]="task.creator.profilePicture ?? 'assets/default.jpg'">
+                    <div class="avatar-text">{{ task.creator.username }}</div>
+                </div>
+            </td>
+        </ng-container>
+
+        <!-- Points -->
+        <ng-container matColumnDef="points">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header mat-sort-header class="header-align-right" arrowPosition="before">Points</th>
+            <td mat-cell *matCellDef="let task" class="numeric">{{ task.points }}</td>
         </ng-container>
 
         <!-- Expanded Detail -->
