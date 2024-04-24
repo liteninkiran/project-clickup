@@ -7,6 +7,7 @@ module.exports = {
     plugins: [
         new EnvironmentPlugin([
             'CLICKUP_API_KEY',
+            'CLICKBOT_SVG_URL',
         ])
     ]
 }

@@ -22,12 +22,14 @@ export class TasksComponent implements OnInit {
         'name',
         'status',
         'creator',
+        'assignees',
         'points',
     ];
     public expandedRow: Task | null = null;
     public apiLoaded = false;
     public dataSource!: MatTableDataSource<Task>;
     public id: number = 0;
+    public svgUrl = process.env['CLICKBOT_SVG_URL'];
 
     @ViewChild(MatSort, { static: true }) public  sort!: MatSort;
     @ViewChild(MatPaginator, { static: true }) public paginator!: MatPaginator;
