@@ -75,7 +75,13 @@ export class TasksComponent implements OnInit {
             if (sortHeaderId === 'orderindex') return +data.orderindex;
             if (sortHeaderId === 'creator') return data.creator.username;
             if (sortHeaderId === 'assignees') return data.assignees.length === 0 ? null : data.assignees[0].username;
-            if (sortHeaderId === 'priority') return data.priority?.priority ?? null;
+            if (sortHeaderId === 'priority') return data.priority?.orderindex ?? null;
+            if (sortHeaderId === 'tags') {
+                const tags: string = data.tags.map((tag: any) => tag.name).join(',');
+                const length: string = data.tags.length.toString().padStart(3, '0');
+                const sort = length + '|' + tags;
+                return sort;
+            };
             return data[sortHeaderId as keyof typeof data];
         };
         this.apiLoaded = true;

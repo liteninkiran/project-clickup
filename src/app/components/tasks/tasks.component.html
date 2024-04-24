@@ -103,7 +103,7 @@
                 <div *ngIf="task.tags.length > 0">
                     <div class="avatar-container" *ngFor="let item of task.tags; index as i;">
                         <div class="avatar avatar-icon avatar-box" [ngStyle]="{ 'background-color': item.tag_bg }"></div>
-                        <div class="avatar-text">{{ item.name | Capitalise }}</div>
+                        <div class="avatar-text avatar-text-small">{{ item.name | Capitalise }}</div>
                     </div>
                 </div>
             </td>
