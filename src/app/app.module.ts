@@ -22,6 +22,7 @@ import { BooleanPipe } from './pipes/boolean.pipe';
 import { FoldersComponent } from './components/folders/folders.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
+import { CapitalisePipe } from './pipes/capitalise.pipe';
 
 @NgModule({
     declarations: [
@@ -38,6 +39,7 @@ import { TasksComponent } from './components/tasks/tasks.component';
 
         // Pipes
         BooleanPipe,
+        CapitalisePipe,
     ],
     imports: [
         // Built-in Modules

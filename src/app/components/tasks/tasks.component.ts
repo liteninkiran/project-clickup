@@ -20,6 +20,7 @@ export class TasksComponent implements OnInit {
         'id',
         'orderindex',
         'name',
+        'status',
     ];
     public expandedRow: Task | null = null;
     public apiLoaded = false;

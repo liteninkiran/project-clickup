@@ -73,3 +73,18 @@ mat-chip {
 .negative {
     color: red;
 }
+
+.status-container {
+    display: flex;
+}
+
+.status-icon {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.status-text {
+    align-content: center;
+}
