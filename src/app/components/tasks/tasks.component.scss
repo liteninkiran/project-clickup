@@ -107,3 +107,14 @@ mat-chip {
 .avatar-text-small {
     font-size: 13px;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: rgba(0, 0, 0, 0.87);
+}
+a:link {
+    color: rgba(0, 0, 0, 0.87);
+}

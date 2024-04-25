@@ -59,7 +59,7 @@ export class TasksComponent implements OnInit {
     }
 
     public onRowClick(task: Task): void {
-        window.open(task.url, '_blank');
+        // window.open(task.url, '_blank');
     }
 
     private handleUpdateResponse(res: TasksResponse) {
