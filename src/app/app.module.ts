@@ -23,6 +23,7 @@ import { FoldersComponent } from './components/folders/folders.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { CapitalisePipe } from './pipes/capitalise.pipe';
+import { AutoFormatMsPipe } from './pipes/auto-format-ms.pipe';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import { CapitalisePipe } from './pipes/capitalise.pipe';
         // Pipes
         BooleanPipe,
         CapitalisePipe,
+        AutoFormatMsPipe,
     ],
     imports: [
         // Built-in Modules

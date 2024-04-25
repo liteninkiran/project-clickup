@@ -26,6 +26,7 @@ export class TasksComponent implements OnInit {
         'priority',
         'tags',
         'points',
+        'time_estimate',
     ];
     public displayedColumnsWithExpand = [...this.displayedColumns, 'expand'];
     public expandedRow: Task | null = null;
