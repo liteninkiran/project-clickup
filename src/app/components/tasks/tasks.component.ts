@@ -27,6 +27,7 @@ export class TasksComponent implements OnInit {
         'tags',
         'points',
     ];
+    public displayedColumnsWithExpand = [...this.displayedColumns, 'expand'];
     public expandedRow: Task | null = null;
     public apiLoaded = false;
     public dataSource!: MatTableDataSource<Task>;
