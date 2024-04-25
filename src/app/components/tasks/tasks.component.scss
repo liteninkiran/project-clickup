@@ -118,3 +118,11 @@ a:visited {
 a:link {
     color: rgba(0, 0, 0, 0.87);
 }
+
+mat-card {
+    margin: 10px;
+}
+
+mat-card-content {
+    white-space: pre-line;
+}

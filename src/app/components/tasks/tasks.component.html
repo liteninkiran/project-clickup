@@ -141,8 +141,10 @@
 
         <!-- Expanded Detail -->
         <ng-container matColumnDef="expandedDetail">
-            <td mat-cell *matCellDef="let space" [attr.colspan]="displayedColumnsWithExpand.length">
-                Coming soon
+            <td mat-cell *matCellDef="let task" [attr.colspan]="displayedColumnsWithExpand.length">
+                <mat-card>
+                    <mat-card-content>{{ task.description }}</mat-card-content>
+                </mat-card>
             </td>
         </ng-container>
 
