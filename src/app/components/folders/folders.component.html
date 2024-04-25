@@ -95,7 +95,7 @@
         <ng-container matColumnDef="lists">
             <th mat-header-cell *matHeaderCellDef>Lists</th>
             <td mat-cell *matCellDef="let folder" (click)="$event.stopPropagation()">
-                <a routerLink="/folder/{{ folder.id }}/lists">
+                <a routerLink="/folder/{{ folder.id }}/lists" target="_blank">
                     <button mat-raised-button color="primary">
                         <mat-icon class="material-icons-outlined">format_list_bulleted</mat-icon>
                     </button>

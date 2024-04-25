@@ -149,7 +149,29 @@
         <ng-container matColumnDef="expandedDetail">
             <td mat-cell *matCellDef="let task" [attr.colspan]="displayedColumnsWithExpand.length">
                 <mat-card>
-                    <mat-card-content>{{ task.description }}</mat-card-content>
+                    <mat-card-header>
+
+                        <mat-card-title>
+                            {{ task.name }}
+                        </mat-card-title>
+    
+                        <mat-card-subtitle>
+                            <div class="avatar-container">
+                                <div class="avatar avatar-icon-small" [ngStyle]="{ 'background-color': task.status.color }"></div>
+                                <div class="avatar-text">{{ task.status.status | Capitalise }}</div>
+                            </div>
+                        </mat-card-subtitle>
+
+                    </mat-card-header>
+
+                    <mat-card-content>
+                        {{ task.description }}
+                    </mat-card-content>
+
+                    <mat-card-actions>
+                        <a routerLink="/" target="_blank"><button mat-button>Task Detail</button></a>
+                    </mat-card-actions>
+
                 </mat-card>
             </td>
         </ng-container>

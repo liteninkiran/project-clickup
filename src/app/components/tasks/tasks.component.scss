@@ -90,6 +90,12 @@ mat-chip {
     height: 20px;
 }
 
+.avatar-icon-small {
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+}
+
 .avatar-user {
     width: 35px;
     height: 35px;
@@ -121,8 +127,13 @@ a:link {
 
 mat-card {
     margin: 10px;
+    padding: 10px;
 }
 
 mat-card-content {
     white-space: pre-line;
+}
+
+mat-card-header {
+    margin-bottom: 20px;
 }
