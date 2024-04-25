@@ -58,13 +58,8 @@ export class TasksComponent implements OnInit {
             });
     }
 
-    public onToggleRow(task: Task): void {
-        if (task === this.expandedRow) {
-            this.expandedRow = null;
-        }
-        else {
-            this.expandedRow = task;
-        }
+    public onRowClick(task: Task): void {
+        window.open(task.url, '_blank');
     }
 
     private handleUpdateResponse(res: TasksResponse) {
